@@ -116,9 +116,9 @@ class Tokenize {
     if (!account) return null
 
     if (typeof account.then === 'function') {
-      return account.then(account => _finishValidation(account, genTime))
+      return account.then(account => this._finishValidation(account, genTime))
     } else {
-      return _finishValidation(account, genTime)
+      return this._finishValidation(account, genTime)
     }
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "@cyyynthia/tokenize",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A universal token format for authentication. Designed to be secure, flexible, and usable anywhere.",
   "main": "./index.js",
   "typings": "./index.d.ts",
