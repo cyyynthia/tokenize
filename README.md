@@ -1,6 +1,6 @@
 # Tokenize
 [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G71TSDF)<br>
-[![License](https://img.shields.io/github/license/Bowser65/tokenize.svg?style=flat-square)](https://github.com/Bowser65/tokenize/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/cyyynthia/tokenize.svg?style=flat-square)](https://github.com/cyyynthia/tokenize/blob/master/LICENSE)
 
 A universal token format for authentication. Designed to be secure, flexible, and usable anywhere.
 

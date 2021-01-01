@@ -26,20 +26,20 @@
  */
 
 declare module '@cyyynthia/tokenize' {
-  type AccountFetcher = (accountId: string, prefix: string|null) => object|null
-  type AsyncAccountFetcher = (accountId: string, prefix: string|null) => Promise<object|null>
+  export type AccountFetcher<T = unknown> = (accountId: string, prefix: string | null) => T | null
+  export type AsyncAccountFetcher<T = unknown> = (accountId: string, prefix: string | null) => Promise<T | null>
 
-  class Tokenize {
+  class Tokenize<TAccount = unknown> {
     static readonly VERSION: number
     static readonly TOKENIZE_EPOCH: number
 
     constructor (secret: string)
     generate (accountId: string, prefix?: string): string
-    validate (token: string, accountFetcher: AccountFetcher): object|false|null
-    validate (token: string, accountFetcher: AsyncAccountFetcher): Promise<object|false|null>
+    validate (token: string, accountFetcher: AccountFetcher<TAccount>): TAccount | false | null
+    validate (token: string, accountFetcher: AsyncAccountFetcher<TAccount>): Promise<TAccount | false | null>
 
     static currentTokenTime (): number
   }
 
-  export = Tokenize
+  export default Tokenize
 }
