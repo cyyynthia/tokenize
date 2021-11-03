@@ -66,8 +66,8 @@ function safeEqual (str1, str2) {
  * @property {number} TOKENIZE_EPOCH First second of 2019, used to get shorter tokens
  */
 class Tokenize {
-  get VERSION () { return 1 }
-  get TOKENIZE_EPOCH () { return 1546300800000 }
+  static get VERSION () { return 1 }
+  static get TOKENIZE_EPOCH () { return 1546300800000 }
 
   /**
    * Tokenize constructor
