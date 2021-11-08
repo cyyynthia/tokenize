@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Cynthia K. Rey, All rights reserved.
+ * Copyright (c) 2020-2021 Cynthia K. Rey, All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -26,7 +26,6 @@
  */
 
 const { createHmac } = require('crypto')
-
 
 /**
  * Signs a string with the HMAC-SHA256 algorithm
@@ -110,8 +109,10 @@ class Tokenize {
     const signatureStr = `${prefix ? `${prefix}.` : ''}${splitted[0]}.${splitted[1]}`
     if (!safeEqual(splitted[2], computeHmac(signatureStr, this._secret))) return false
 
+    const genTime = parseInt(Buffer.from(splitted[1], 'base64').toString('utf8'), 10)
+    if (isNaN(genTime)) return false
+
     const accountId = Buffer.from(splitted[0], 'base64').toString('utf8')
-    const genTime = Buffer.from(splitted[1], 'base64').toString('utf8')
     const account = accountFetcher(accountId, prefix)
     if (!account) return null
 
@@ -130,7 +131,7 @@ class Tokenize {
       lastTokenReset = account.last_token_reset
     }
 
-    if (typeof lastTokenReset !== 'number' || lastTokenReset > genTime) return null
+    if (typeof lastTokenReset !== 'number' || lastTokenReset > ((genTime * 1000) + Tokenize.TOKENIZE_EPOCH)) return null
     return account
   }
 
