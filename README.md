@@ -10,6 +10,7 @@ in USAGE.md.
 
 Here is a list of other implementations:
  - Java (1.8+): https://github.com/vinceh121/tokenize4j
+ - Rust: https://github.com/TheOddGarlic/tokenize-rs
  - ...your implementation! Feel free to shoot a PR if you made an implementation. I'd love to list it!
 
 ## Security
